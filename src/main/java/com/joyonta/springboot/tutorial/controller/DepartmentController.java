@@ -1,6 +1,7 @@
 package com.joyonta.springboot.tutorial.controller;
 
 import com.joyonta.springboot.tutorial.entity.Department;
+import com.joyonta.springboot.tutorial.error.DepartmentNotFoundException;
 import com.joyonta.springboot.tutorial.service.DepartmentService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,7 +32,7 @@ public class DepartmentController {
     }
 
     @GetMapping("/fetchDepartmentById/{id}")
-    public Department fetchDepartmentById (@PathVariable("id") Long departmentId) {
+    public Department fetchDepartmentById (@PathVariable("id") Long departmentId) throws DepartmentNotFoundException {
         return departmentService.fetchDepartmentById (departmentId);
     }
 
