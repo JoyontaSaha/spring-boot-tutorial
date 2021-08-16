@@ -3,6 +3,7 @@ package com.joyonta.springboot.tutorial.service;
 import com.joyonta.springboot.tutorial.entity.Department;
 import com.joyonta.springboot.tutorial.repository.DepartmentRepository;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -36,6 +37,7 @@ class DepartmentServiceTest {
 
     @Test
     @DisplayName("Get data based on valid Department name")
+    //@Disabled  // Disabled annotation used for multiple test cases scenario when few test cases require to be skipped
     public void whenValidDepartmentName_thenDepartmentShouldFound() {
         String departmentName = "IT";
         Department found = departmentService.fetchDepartmentByName(departmentName);
