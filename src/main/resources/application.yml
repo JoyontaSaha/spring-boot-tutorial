@@ -1,6 +1,14 @@
 server:
   port: 8080
+
 spring:
+  profiles:
+    active: qa
+
+---
+
+spring:
+  profiles: dev
   datasource:
     password: 123456
     url: jdbc:mysql://localhost:3306/dcbapp
@@ -15,3 +23,42 @@ spring:
     show-sql: true
 welcome:
   message: Welcome To Spring Boot
+
+
+---
+
+  spring:
+    profiles: qa
+    datasource:
+      password: 123456
+      url: jdbc:mysql://localhost:3306/dcbapp-qa
+      username: admin
+    jpa:
+      hibernate:
+        ddl-auto: update
+      properties:
+        hibernate:
+          dialect: org.hibernate.dialect.MySQL8Dialect
+          format_sql: true
+      show-sql: true
+  welcome:
+    message: Welcome To Spring Boot
+
+---
+
+    spring:
+      profiles: prod
+      datasource:
+        password: 123456
+        url: jdbc:mysql://localhost:3306/dcbapp-prod
+        username: admin
+      jpa:
+        hibernate:
+          ddl-auto: update
+        properties:
+          hibernate:
+            dialect: org.hibernate.dialect.MySQL8Dialect
+            format_sql: true
+        show-sql: true
+    welcome:
+      message: Welcome To Spring Boot
