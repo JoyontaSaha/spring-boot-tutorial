@@ -49,6 +49,7 @@ welcome:
       web:
         exposure:
           include: "*"
+          exclude: "env, beans"
 
 ---
 
